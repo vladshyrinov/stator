@@ -1,11 +1,21 @@
 {
-  "name": "stator",
+  "name": "redux-stator",
   "version": "1.0.0",
-  "description": "",
-  "main": "stator.js",
+  "description": "Self written simple implementation of Redux library",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Vlad Shyrinov <vlad.shyrinov@gmail.com> (https://github.com/vladshyrinov)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "npmName": "redux-stator"
 }
