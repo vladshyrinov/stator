@@ -1,6 +1,6 @@
-import { createStore, combineReducers, applyMiddleware } from '../src/index';
+import { createStore, combineReducers, applyMiddleware } from '../src/index.js';
 
-// reducers
+// counter and colorChanger reducers
 
 function counter(state = 0, action) {
     switch (action.type) {
@@ -24,75 +24,69 @@ function colorChanger(state = 'black', action) {
     }
 }
 
+// creation of combinedReducer from counter and colorChanger reducers
+
 const appReducer = combineReducers({
     counter,
     colorChanger
 });
 
-// store
+// creation store with app reducer, initial (preloaded) state and enhancer applyMiddleware
 
-let store = createStore(appReducer, { counter: 10 }, applyMiddleware(logger, thanksSayer, bitteSayer));
+let store = createStore(appReducer, { counter: 10 }, applyMiddleware(thanksSayer, bitteSager));
 
-// subscribers
+// initial state
+console.log('Initital state', store.getState());
+console.log("-------------------------------");
 
-const subscriber1 = store.subscribe(() => console.log('subscriber1', store.getState()))
-const subscriber2 = store.subscribe(() => console.log('subscriber2', store.getState()))
+// creation of two subscribers to liaten to the store
+
+const subscriber1 = store.subscribe(() => console.log('subscriber1 state', store.getState()))
+const subscriber2 = store.subscribe(() => console.log('subscriber2 state', store.getState()))
+
+// started dispatching of actions to which subscribers are subscribed
+store.dispatch({ type: 'INCREMENT' })
+console.log("-------------------------------");
 
 store.dispatch({ type: 'INCREMENT' })
+console.log("-------------------------------");
 
-store.dispatch({ type: 'INCREMENT' })
+// example of unsubscrube method to stop listen to the store
 
 subscriber1.unsubscribe(); 
+console.log('subscriber1 is unsubscribed');
+console.log("-------------------------------");
 
 store.dispatch({ type: 'DECREMENT' })
+console.log("-------------------------------");
 
 store.dispatch({ type: 'SECONDARY' })
+console.log("-------------------------------");
 
-// middlewares
-
-function logger({ getState }) {
-    return next => action => {
-        console.log('Logger will dispatch', action);
-
-        // Call the next dispatch method in the middleware chain.
-        const returnValue = next(action);
-
-        console.log('Logger state after dispatch', getState());
-
-        console.log('-------------------------');
-
-        // This will likely be the action itself, unless
-        // a middleware further in chain changed it.
-        return returnValue;
-    }
-}
+// applied middlewares
 
 function thanksSayer({ getState }) {
     return next => action => {
-        console.log('Thanks will dispatch', action);
+        console.log('Thanks Middleware will dispatch', action);
 
-        // Call the next dispatch method in the middleware chain.
-        const returnValue = next(action);
+        // call the next dispatch method in the middleware chain
+        const returnedValue = next(action);
 
-        console.log('Thanks state after dispatch', getState());
+        console.log('Thanks Middleware state after dispatch', getState());
 
-        // This will likely be the action itself, unless
-        // a middleware further in chain changed it.
-        return returnValue;
+        return returnedValue;
     }
 }
 
-function bitteSayer({ getState }) {
+function bitteSager({ getState }) {
     return next => action => {
-        console.log('Bitte will dispatch', action);
+        console.log('Bitte Middleware will dispatch', action);
 
-        // Call the next dispatch method in the middleware chain.
-        const returnValue = next(action);
+        // call the next dispatch method in the middleware chain
+        const returnedValue = next(action);
 
-        console.log('Bitte state after dispatch', getState());
+        console.log('Bitte Middleware state after dispatch', getState());
 
-        // This will likely be the action itself, unless
-        // a middleware further in chain changed it.
-        return returnValue;
+        return returnedValue;
     }
 }

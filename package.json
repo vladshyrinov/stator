@@ -1,11 +1,9 @@
 {
   "name": "redux-stator",
   "version": "1.0.2",
-  "description": "Self written simple implementation of Redux library",
+  "description": "Simple implementation of Redux library",
+  "keywords": ["redux", "state", "stator"],
   "main": "src/index.js",
-  "scripts": {
-    "build": "webpack --mode production"
-  },
   "author": "Vlad Shyrinov <vlad.shyrinov@gmail.com> (https://github.com/vladshyrinov)",
   "license": "MIT",
   "devDependencies": {

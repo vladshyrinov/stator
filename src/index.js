@@ -1,5 +1,5 @@
-import { isObject } from './utils';
-import Store from './store';
+import { isObject } from './utils.js';
+import Store from './store.js';
 
 function createStore(reducerFn, initialState, enhancer) {
     let store;
@@ -66,7 +66,6 @@ function applyMiddleware(...middlewares) {
         }
     }
 }
-
 
 export {
     createStore,

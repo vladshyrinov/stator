@@ -1,4 +1,4 @@
-import { isObject, generateRandomType } from './utils';
+import { isObject, generateRandomType } from './utils.js';
 
 class Store {
     constructor(reducerFn, initialState) {
