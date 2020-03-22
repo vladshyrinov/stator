@@ -2,7 +2,7 @@
   "name": "redux-stator",
   "version": "1.0.0",
   "description": "Self written simple implementation of Redux library",
-  "main": "dist/main.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode production"
   },
