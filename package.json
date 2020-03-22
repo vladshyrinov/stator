@@ -1,8 +1,12 @@
 {
   "name": "redux-stator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple implementation of Redux library",
-  "keywords": ["redux", "state", "stator"],
+  "keywords": [
+    "redux",
+    "state",
+    "stator"
+  ],
   "main": "src/index.js",
   "author": "Vlad Shyrinov <vlad.shyrinov@gmail.com> (https://github.com/vladshyrinov)",
   "license": "MIT",
