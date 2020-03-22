@@ -58,7 +58,7 @@ function applyMiddleware(...middlewares) {
         }
 
         const middleWaresChain = middlewares.map(middleware => middleware(middlewareAPI));
-        dispatch = _compose(...middleWaresChain)(store.dispatch);
+        dispatch = compose(...middleWaresChain)(store.dispatch);
 
         return {
             ...store,
