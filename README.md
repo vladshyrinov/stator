@@ -35,4 +35,4 @@ helps to compose functions to have needed call order, can be used for creation o
 applies middlewares that will be called between action dispatch and state changes
 
 ## Usage
-see [example](example)
+see [example](https://github.com/vladshyrinov/stator/tree/master/example)
