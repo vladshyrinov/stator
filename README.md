@@ -4,7 +4,7 @@ It is a lightweight version of Redux library
 
 ## API
 
-#### createStore
+### createStore
 
 ##### parameters
 - reducer function
@@ -13,21 +13,21 @@ It is a lightweight version of Redux library
 ##### functionality
 creates Store class instance to manage application state
 
-#### combineReducers
+### combineReducers
 
 ##### parameters
 - reducers object
 ##### functionality
 combines multiple reducers into one
 
-#### compose
+### compose
 
 ##### parameters
 - functions to compose
 ##### functionality
 helps to compose functions to have needed call order, can be used for creation own enhancers for Store
 
-#### applyMiddleware
+### applyMiddleware
 
 ##### parameters
 - middlewares
